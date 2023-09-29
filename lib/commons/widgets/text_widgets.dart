@@ -45,12 +45,47 @@ class TextSize18 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: TextAlign.center,
       style: GoogleFonts.montserrat(
         fontSize: 18,
         color: color,
         fontWeight: fontWeight,
         fontStyle: FontStyle.normal,
+        letterSpacing: 0.2
+      ),
+    );
+  }
+}
+
+// Text Size 24
+class Textsize32 extends StatelessWidget {
+  final String text;
+  final Color color;
+  final FontWeight fontWeight;
+  final double? fontSize;
+  final double? height;
+  final double? letterSpacing;
+  const Textsize32({
+    super.key,
+    this.text = '',
+    this.color = ProjectColors.white,
+    this.fontWeight = FontWeight.normal,
+    this.fontSize,
+    this.height,
+    this.letterSpacing,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.montserrat(
+        fontSize: fontSize,
+        color: color,
+        fontWeight: fontWeight,
+        fontStyle: FontStyle.normal,
+        height: height,
+        letterSpacing: letterSpacing,
+
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:dating_assitant_app/commons/utils/colors.dart';
 import 'package:dating_assitant_app/commons/widgets/custom_container.dart';
 import 'package:dating_assitant_app/commons/widgets/text_widgets.dart';
+import 'package:dating_assitant_app/features/upgrade/view/upgrade.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ class _ProfileState extends State<Profile> {
               customContainerFilled(
                 onTap: () {
                   // Navigate to the upgrade screen.
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Upgrade(),));
                 },
                 containerTitle: 'Upgrade to Premium',
                 fontWeight: FontWeight.w600,
