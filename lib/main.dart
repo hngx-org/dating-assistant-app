@@ -1,3 +1,6 @@
+import 'package:dating_assitant_app/screens/chat_screen.dart';
+import 'package:dating_assitant_app/screens/dating_assitant.dart';
+import 'package:dating_assitant_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +12,10 @@ class DatingAssistantApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return const MaterialApp(
+      home: TabBar(
+        tabs: [DatingAssistantHome(), ChatScreen(), ProfileScreen()],
+      ),
+    );
   }
 }
