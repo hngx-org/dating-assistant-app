@@ -1,4 +1,7 @@
 import 'package:dating_assitant_app/features/application/views/dashbord.dart';
+import 'package:dating_assitant_app/screens/chat_screen.dart';
+import 'package:dating_assitant_app/screens/dating_assitant.dart';
+import 'package:dating_assitant_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,7 +15,12 @@ class DatingAssistantApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home:  Dashboard(), // This has to be changed to the splash screen. 
+      home: TabBar(
+        tabs: [DatingAssistantHome(), ChatScreen(), ProfileScreen()],
+      ),
+    );
+    return const MaterialApp(
+      home:  Dashboard(), // This has to be changed to the splash screen.
       debugShowCheckedModeBanner: false,
     );
   }
