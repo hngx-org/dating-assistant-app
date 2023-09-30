@@ -16,16 +16,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
           backgroundColor: ProjectColors.white,
           title: ListTile(
             leading: Image.asset(
-              'assets/logo.png',
+              'assets/images/logo.png',
               width: 50,
             ),
-            title: const Text('Ai Assistant'),
+            title:  const TextSize18(text: 'Ai Assistant', color: ProjectColors.black),
           )),
+          backgroundColor: ProjectColors.white,
       body: Padding(
-        padding: const EdgeInsets.only(top: 16, left: 12, right: 12),
+        padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               text: 'Welcome to your Ai \ndating assistant',
               color: ProjectColors.pink,
               fontWeight: FontWeight.w800,
-              fontSize: 32,
+              fontSize: 24,
               height: 1.5,
               letterSpacing: 0.5,
             ),
@@ -42,7 +44,7 @@ class _HomePageState extends State<HomePage> {
             ),
             customContainer(
                 icon: Icons.quickreply,
-                containerTitle: 'Generate quick conversation starters'),
+                containerTitle: 'Generate quick \nconversation starters'),
             const SizedBox(
               height: 20,
             ),
