@@ -21,8 +21,8 @@ class Upgrade extends StatelessWidget {
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Textsize32(
+              children:   [
+              const  Textsize32(
               text: 'Upgrade to \npremium plan',
               color: ProjectColors.pink,
               fontWeight: FontWeight.w800,
@@ -30,14 +30,14 @@ class Upgrade extends StatelessWidget {
               height: 1.5,
               letterSpacing: 0.5,
             ),
-            SizedBox(height: 30),
-            TextSize18(
+          const  SizedBox(height: 30),
+          const  TextSize18(
               text:
                   'Enjoy Unlimited access to Dating Assistant, no ads and unique responses from our ai for just \$5 per month',
               color: ProjectColors.black,
               fontWeight: FontWeight.w400,
             ),
-            SizedBox(height: 25),
+           const SizedBox(height: 25),
             customContainerFilled(
               containerTitle: '\$ 5 / Month',
               fontWeight: FontWeight.w700
