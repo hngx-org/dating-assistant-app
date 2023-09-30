@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const WalkThroughScreen()));
     });
@@ -29,8 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Center(
               child: Image.asset(
                 AppImages.logoImage,
-                height: 200.r,
-                width: 200.r,
+                height: 150.r,
+                width: 150.r,
               ),
             )));
   }

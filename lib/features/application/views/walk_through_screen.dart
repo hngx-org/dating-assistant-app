@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dating_assitant_app/commons/widgets/button_widget.dart';
 import 'package:dating_assitant_app/commons/widgets/onboarding_page_indicator_dot.dart';
-import 'package:dating_assitant_app/commons/widgets/walk_through_content_widget.dart';
+import 'package:dating_assitant_app/features/application/widgets/walk_through_content_widget.dart';
 import 'package:dating_assitant_app/constants/images.dart';
 import 'package:dating_assitant_app/constants/strings.dart';
 
@@ -86,7 +85,10 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
         const Spacer(),
         Padding(
           padding: EdgeInsets.all(16.r),
-          child: appButton(buttonTitle: AppStrings.getStarted),
+          child: appButton(
+              buttonTitle: AppStrings.getStarted,
+              onTap: () {
+              }),
         ),
       ],
     ));
