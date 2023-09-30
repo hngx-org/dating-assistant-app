@@ -1,6 +1,7 @@
 import 'package:dating_assitant_app/commons/utils/colors.dart';
 import 'package:dating_assitant_app/commons/widgets/custom_container.dart';
 import 'package:dating_assitant_app/commons/widgets/text_widgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -20,12 +21,39 @@ class _ProfileState extends State<Profile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const ButtonText(text: 'Kolade Oke', color: ProjectColors.black),
-              const SizedBox(height: 90),
-              customContainerFilled(containerTitle: 'Upgrade to Premium', fontWeight: FontWeight.w600),
+              const CircleAvatar(
+                radius: 80,
+                backgroundColor: ProjectColors.grey,
+              ),
+              const SizedBox(height: 20),
+              const ButtonText(
+                text: 'Kolade Oke',
+                color: ProjectColors.black,
+                fontWeight: FontWeight.bold,
+              ),
+              const SizedBox(height: 60),
+              customContainerFilled(
+                onTap: () {
+                  // Navigate to the upgrade screen.
+                },
+                containerTitle: 'Upgrade to Premium',
+                fontWeight: FontWeight.w600,
+              ),
               const SizedBox(height: 25),
-              customContainer(icon: Icons.share, containerTitle: 'Share with friends')
-              
+              customContainer(
+                icon: Icons.share,
+                containerTitle: 'Share with friends',
+              ),
+              const SizedBox(height: 25),
+              customContainer(
+                icon: CupertinoIcons.doc_text,
+                containerTitle: 'Terms and conditions',
+              ),
+              const SizedBox(height: 25),
+              customContainer(
+                icon: CupertinoIcons.chat_bubble_fill,
+                containerTitle: 'about us',
+              ),
             ],
           ),
         ),
