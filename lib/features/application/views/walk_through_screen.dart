@@ -6,6 +6,8 @@ import 'package:dating_assitant_app/features/application/widgets/walk_through_co
 import 'package:dating_assitant_app/constants/images.dart';
 import 'package:dating_assitant_app/constants/strings.dart';
 
+import '../../sign_up/view/sign_up.dart';
+
 class WalkThroughScreen extends StatefulWidget {
   const WalkThroughScreen({super.key});
 
@@ -88,6 +90,8 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
           child: appButton(
               buttonTitle: AppStrings.getStarted,
               onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const SignUp()));
               }),
         ),
       ],
