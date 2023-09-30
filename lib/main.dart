@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'features/application/views/splash_screen.dart';
 
 void main() {
-  runApp(const ProviderScope(child: DatingAssistantApp()));
+  runApp(const ProviderScope(child:  DatingAssistantApp()));
 }
 
 class DatingAssistantApp extends StatelessWidget {
