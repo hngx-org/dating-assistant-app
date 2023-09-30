@@ -1,5 +1,6 @@
+import 'package:dating_assitant_app/features/application/views/dating_home.dart';
 import 'package:dating_assitant_app/features/profile/view/profile.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:dating_assitant_app/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 var bottomTabs = <BottomNavigationBarItem>[
@@ -8,20 +9,15 @@ var bottomTabs = <BottomNavigationBarItem>[
     label: 'Home',
   ),
   const BottomNavigationBarItem(
-    icon: Icon(CupertinoIcons.chat_bubble_2_fill, size: 27),
-    label: 'Chat',
-  ),
-  const BottomNavigationBarItem(
     icon: Icon(Icons.person, size: 27),
     label: 'Profile',
   ),
 ];
 
-Widget appScreens({int index = 0}){
+Widget appScreens({int index = 0}) {
   List<Widget> screens = [
     // Update this when you complete your screens(in-order).
-    const Center(child: Text('Home Page')),
-    const Center(child: Text('Ai Chat Page')),
+    const HomePage(),
     const Profile()
   ];
   // var ref;

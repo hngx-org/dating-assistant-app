@@ -50,7 +50,11 @@ Widget customContainer(
       child: Center(
           child: Row(
         children: [
-          Icon(icon, size: 33),
+          Icon(
+            icon,
+            size: 33,
+            color: ProjectColors.black,
+          ),
           const SizedBox(width: 25),
           TextSize18(
             text: containerTitle,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const ProviderScope(child:  DatingAssistantApp()));
+  runApp(const ProviderScope(child: DatingAssistantApp()));
 }
 
 class DatingAssistantApp extends StatelessWidget {
@@ -12,7 +12,7 @@ class DatingAssistantApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home:  Dashboard(), // This has to be changed to the splash screen. 
+      home: Dashboard(), // This has to be changed to the splash screen.
       debugShowCheckedModeBanner: false,
     );
   }
