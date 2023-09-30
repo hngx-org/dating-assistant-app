@@ -41,6 +41,8 @@ dependencies:
   flutter_riverpod: 2.4.0
   riverpod_generator: ^2.3.1
   riverpod_lint: ^2.0.3
+  
+ 
 
 dev_dependencies:
   flutter_test:
