@@ -1,7 +1,7 @@
-import 'package:dating_assitant_app/constants/colors.dart';
-import 'package:dating_assitant_app/screens/chat_screen.dart';
 import 'package:dating_assitant_app/screens/dating_assitant.dart';
 import 'package:flutter/material.dart';
+
+import '../commons/utils/colors.dart';
 
 class TabBar extends StatefulWidget {
   const TabBar({super.key});

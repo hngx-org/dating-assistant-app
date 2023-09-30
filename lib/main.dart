@@ -1,12 +1,11 @@
-import 'package:dating_assitant_app/features/application/views/dashbord.dart';
-import 'package:dating_assitant_app/screens/chat_screen.dart';
-import 'package:dating_assitant_app/screens/dating_assitant.dart';
-import 'package:dating_assitant_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'features/application/views/splash_screen.dart';
 
 void main() {
-  runApp(const ProviderScope(child:  DatingAssistantApp()));
+  runApp(const ProviderScope(child: DatingAssistantApp()));
 }
 
 class DatingAssistantApp extends StatelessWidget {
@@ -14,14 +13,15 @@ class DatingAssistantApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: TabBar(
-        tabs: [DatingAssistantHome(), ChatScreen(), ProfileScreen()],
-      ),
-    );
-    return const MaterialApp(
-      home:  Dashboard(), // This has to be changed to the splash screen.
-      debugShowCheckedModeBanner: false,
-    );
+    return ScreenUtilInit(
+        designSize: const Size(370, 810),
+        minTextAdapt: false,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return const MaterialApp(
+            home: SplashScreen(),
+            debugShowCheckedModeBanner: false,
+          );
+        });
   }
 }

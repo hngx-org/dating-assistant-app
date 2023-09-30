@@ -41,6 +41,8 @@ dependencies:
   flutter_riverpod: ^2.4.1
   riverpod_generator: ^2.3.1
   riverpod_lint: ^2.0.3
+  flutter_screenutil: ^5.9.0
+
 
 dev_dependencies:
   flutter_test:
@@ -64,10 +66,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/logo.png
-  #   - images/a_dot_ham.jpeg
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

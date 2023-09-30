@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:dating_assitant_app/constants/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../commons/utils/colors.dart';
 
 class DatingAssistantHome extends StatelessWidget {
   const DatingAssistantHome({super.key});
