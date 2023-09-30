@@ -5,6 +5,8 @@ import 'package:dating_assitant_app/commons/widgets/custom_container.dart';
 import 'package:dating_assitant_app/commons/widgets/text_widgets.dart';
 import 'package:flutter/material.dart';
 
+import '../../sign_in/view/sign_in.dart';
+
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
@@ -13,8 +15,7 @@ class SignUp extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding:
-              const EdgeInsets.only(top: 90, right: 20, left: 20),
+          padding: const EdgeInsets.only(top: 90, right: 20, left: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -53,7 +54,12 @@ class SignUp extends StatelessWidget {
                   const SizedBox(height: 30),
                   // Login Button
                   appButton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignIn()));
+                    },
                     buttonTitle: 'Sign up',
                   ),
                   const SizedBox(height: 20),
