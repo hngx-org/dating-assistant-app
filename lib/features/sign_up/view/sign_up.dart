@@ -3,12 +3,10 @@ import 'package:dating_assitant_app/commons/widgets/auth_text_form_field.dart';
 import 'package:dating_assitant_app/commons/widgets/button_widget.dart';
 import 'package:dating_assitant_app/commons/widgets/custom_container.dart';
 import 'package:dating_assitant_app/commons/widgets/text_widgets.dart';
-import 'package:dating_assitant_app/features/application/views/dashbord.dart';
-import 'package:dating_assitant_app/features/sign_up/view/sign_up.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,7 @@ class SignIn extends StatelessWidget {
       body: SafeArea(
         child: Container(
           padding:
-              const EdgeInsets.only(top: 90, right: 20, left: 20, bottom: 20),
+              const EdgeInsets.only(top: 90, right: 20, left: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -24,7 +22,7 @@ class SignIn extends StatelessWidget {
                 children: [
                   const Center(
                     child: Textsize32(
-                      text: 'Hello Again',
+                      text: 'Let\'s Get Started',
                       color: ProjectColors.pink,
                       fontWeight: FontWeight.w800,
                       fontSize: 24,
@@ -56,7 +54,7 @@ class SignIn extends StatelessWidget {
                   // Login Button
                   appButton(
                     onTap: () {},
-                    buttonTitle: 'Log in',
+                    buttonTitle: 'Sign up',
                   ),
                   const SizedBox(height: 20),
                   const TextSize18(
@@ -66,48 +64,12 @@ class SignIn extends StatelessWidget {
                   const SizedBox(height: 20),
                   // login with google button
                   customContainer(
-                    containerTitle: 'Log in with Google',
+                    containerTitle: 'Sign up with Google',
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   )
                 ],
               ),
-
-              // don't have an account section
-              Column(
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to the sign up screen
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignUp(),));
-                    },
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextSize18(
-                          text: 'Don\'t have an account?',
-                          color: ProjectColors.black,
-                        ),
-                        SizedBox(width: 7),
-                        TextSize18(
-                          text: 'Sign up',
-                          color: ProjectColors.blue,
-                        ),
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to the home page
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Dashboard(),));
-                    },
-                    child: const TextSize18(
-                      text: 'Start without creating an account',
-                      color: ProjectColors.blue,
-                    ),
-                  ),
-                ],
-              )
             ],
           ),
         ),
