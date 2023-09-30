@@ -16,7 +16,7 @@ class Dashboard extends ConsumerWidget {
         backgroundColor: Colors.white,
         body: appScreens(index: indexProvider),
         bottomNavigationBar: Container(
-          height: 58,
+          // height: 58,
           decoration: BoxDecoration(
             color: ProjectColors.white,
             boxShadow: [
