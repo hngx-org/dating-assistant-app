@@ -35,6 +35,7 @@ Widget customContainer(
     double width = double.infinity,
     double height = 71.0,
     FontWeight fontWeight = FontWeight.normal,
+    double fontSize = 18,
     IconData? icon,
     BuildContext? context,
     void Function()? onTap}) {
@@ -55,7 +56,8 @@ Widget customContainer(
           TextSize18(
             text: containerTitle,
             color: ProjectColors.black,
-            fontWeight: FontWeight.normal,
+            fontWeight: fontWeight,
+            fontSize: fontSize,
           )
         ],
       )),

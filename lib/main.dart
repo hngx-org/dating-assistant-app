@@ -1,4 +1,4 @@
-import 'package:dating_assitant_app/features/application/views/dashbord.dart';
+import 'package:dating_assitant_app/features/sign_in/view/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,7 +12,8 @@ class DatingAssistantApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home:  Dashboard(), // This has to be changed to the splash screen. 
+      // home:  Dashboard(), // This has to be changed to the splash screen. 
+      home: SignIn(),
       debugShowCheckedModeBanner: false,
     );
   }
