@@ -34,11 +34,13 @@ class TextSize18 extends StatelessWidget {
   final String text;
   final Color color;
   final FontWeight fontWeight;
+  final double fontSize;
   const TextSize18({
     super.key,
     this.text = '',
     this.color = ProjectColors.white,
     this.fontWeight = FontWeight.normal,
+    this.fontSize = 18,
   });
 
   @override
@@ -46,7 +48,7 @@ class TextSize18 extends StatelessWidget {
     return Text(
       text,
       style: GoogleFonts.montserrat(
-        fontSize: 18,
+        fontSize: fontSize,
         color: color,
         fontWeight: fontWeight,
         fontStyle: FontStyle.normal,
