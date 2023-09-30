@@ -23,7 +23,7 @@ class _ProfileState extends State<Profile> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const CircleAvatar(
-                radius: 80,
+                radius: 50,
                 backgroundColor: ProjectColors.grey,
               ),
               const SizedBox(height: 20),
@@ -36,7 +36,9 @@ class _ProfileState extends State<Profile> {
               customContainerFilled(
                 onTap: () {
                   // Navigate to the upgrade screen.
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Upgrade(),));
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const Upgrade(),
+                  ));
                 },
                 containerTitle: 'Upgrade to Premium',
                 fontWeight: FontWeight.w600,
