@@ -11,6 +11,19 @@ class Upgrade extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            size: 25,
+            color: ProjectColors.black,
+          ),
+        ),
+        backgroundColor: ProjectColors.white,
+      ),
       backgroundColor: ProjectColors.white,
       body: SafeArea(
         child: Container(
@@ -47,7 +60,9 @@ class Upgrade extends StatelessWidget {
               ),
               appButton(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PaymentDetail(),));
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const PaymentDetail(),
+                  ));
                 },
                 buttonTitle: 'Continue',
               )

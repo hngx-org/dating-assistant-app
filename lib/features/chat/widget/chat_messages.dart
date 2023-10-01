@@ -1,6 +1,5 @@
 // import 'package:dating_assitant_app/commons/widgets/text_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:dating_assitant_app/features/chat/widget/chat_bubble.dart';
 // import 'package:dating_assitant_app/commons/utils/colors.dart';
 
 class ChatMessage extends StatelessWidget {

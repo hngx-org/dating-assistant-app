@@ -1,3 +1,4 @@
+import 'package:dating_assitant_app/features/chat/view/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'features/application/views/splash_screen.dart';
 
 void main() {
-  runApp(const ProviderScope(child:  DatingAssistantApp()));
+  runApp(const ProviderScope(child: DatingAssistantApp()));
 }
 
 class DatingAssistantApp extends StatelessWidget {
@@ -19,7 +20,8 @@ class DatingAssistantApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return const MaterialApp(
-            home: SplashScreen(),
+            home: ChatScreenMain(),
+            // SplashScreen(),
             debugShowCheckedModeBanner: false,
           );
         });

@@ -79,19 +79,28 @@ class SignIn extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       // Navigate to the sign up screen
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignUp(),));
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SignUp(),
+                      ));
                     },
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextSize18(
+                        const TextSize18(
                           text: 'Don\'t have an account?',
                           color: ProjectColors.black,
                         ),
-                        SizedBox(width: 7),
-                        TextSize18(
-                          text: 'Sign up',
-                          color: ProjectColors.blue,
+                        const SizedBox(width: 7),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const SignUp(),
+                            ));
+                          },
+                          child: const TextSize18(
+                            text: 'Sign up',
+                            color: ProjectColors.blue,
+                          ),
                         ),
                       ],
                     ),
@@ -99,7 +108,9 @@ class SignIn extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       // Navigate to the home page
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Dashboard(),));
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Dashboard(),
+                      ));
                     },
                     child: const TextSize18(
                       text: 'Start without creating an account',
