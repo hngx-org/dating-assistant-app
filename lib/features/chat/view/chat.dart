@@ -1,4 +1,3 @@
-import 'package:dating_assitant_app/features/chat/widget/chat_buuble.dart';
 import 'package:dating_assitant_app/features/chat/widget/chat_messages.dart';
 import 'package:flutter/material.dart';
 import 'package:dating_assitant_app/commons/utils/colors.dart';
@@ -62,27 +61,6 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
           ),
         ),
         backgroundColor: ProjectColors.white,
-        // title: ListTile(
-        //   leading: IconButton(
-        //     onPressed: () {
-        //       Navigator.of(context).pop();
-        //     },
-        //     icon: const Icon(
-        //       Icons.arrow_back,
-        //       size: 25,
-        //       color: ProjectColors.black,
-        //     ),
-        //   ),
-        //   title:
-        // Text(
-        //     'Ai Assistant',
-        //     style: GoogleFonts.montserrat(
-        //       color: ProjectColors.black,
-        //       fontSize: 18,
-        //     ),
-        //   ),
-
-        // ),
       ),
       body: SafeArea(
         child: Column(
@@ -94,8 +72,7 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
                   padding: const EdgeInsets.all(8),
                   itemCount: messages.length,
                   itemBuilder: (context, index) {
-                    return chatBubbleContainer(
-                        messageText: messages[index].messageContent);
+                    return Container();
                   }),
             ),
 
