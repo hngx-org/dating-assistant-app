@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 0,
           backgroundColor: ProjectColors.white,
+          titleSpacing: -50,
           title: ListTile(
             leading: Image.asset(
               'assets/images/logo.png',

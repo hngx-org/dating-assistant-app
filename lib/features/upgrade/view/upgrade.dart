@@ -23,6 +23,7 @@ class Upgrade extends StatelessWidget {
           ),
         ),
         backgroundColor: ProjectColors.white,
+        elevation: 0,
       ),
       backgroundColor: ProjectColors.white,
       body: SafeArea(
@@ -60,9 +61,11 @@ class Upgrade extends StatelessWidget {
               ),
               appButton(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const PaymentDetail(),
-                  ));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const PaymentDetail(),
+                    ),
+                  );
                 },
                 buttonTitle: 'Continue',
               )

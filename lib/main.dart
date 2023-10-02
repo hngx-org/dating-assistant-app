@@ -15,15 +15,15 @@ class DatingAssistantApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(370, 810),
-        minTextAdapt: false,
-        splitScreenMode: true,
-        builder: (context, child) {
-          return const MaterialApp(
-            home: ChatScreenMain(),
-            // SplashScreen(),
-            debugShowCheckedModeBanner: false,
-          );
-        });
+      designSize: const Size(370, 810),
+      minTextAdapt: false,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return const MaterialApp(
+          home: SplashScreen(),
+          debugShowCheckedModeBanner: false,
+        );
+      },
+    );
   }
 }

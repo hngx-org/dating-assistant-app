@@ -61,7 +61,9 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
           ),
         ),
         backgroundColor: ProjectColors.white,
+        elevation: 0,
       ),
+      backgroundColor: ProjectColors.white,
       body: SafeArea(
         child: Column(
           children: [
