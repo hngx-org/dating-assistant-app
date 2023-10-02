@@ -7,6 +7,7 @@ import 'package:dating_assitant_app/features/application/widgets/walk_through_co
 import 'package:dating_assitant_app/constants/images.dart';
 import 'package:dating_assitant_app/constants/strings.dart';
 
+// import '../../sign_up/view/sign_up.dart';
 
 class WalkThroughScreen extends StatefulWidget {
   const WalkThroughScreen({super.key});
@@ -78,22 +79,46 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           ...List.generate(
-              pages.length,
-              (index) => Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 2.r),
-                  child: OnBoardingPageIndicatorDot(
-                      isActive: index == _pageIndex)))
+            pages.length,
+            (index) => Padding(
+              padding: EdgeInsets.symmetric(horizontal: 2.r),
+              child: OnBoardingPageIndicatorDot(isActive: index == _pageIndex),
+            ),
+          )
         ]),
         const Spacer(),
         Padding(
-          padding: EdgeInsets.all(16.r),
-          child: appButton(
-              buttonTitle: AppStrings.getStarted,
-              onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const SignIn()));
-              }),
-        ),
+            padding: EdgeInsets.all(16.r),
+            child: _pageIndex <= 2
+                ? Row(
+                    children: [
+                      Expanded(
+                        child: textButton(
+                            buttonTitle: AppStrings.nextScreen,
+                            onTap: () {
+                              _pageController.nextPage(
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeIn);
+                            }),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: textButton(
+                            buttonTitle: AppStrings.skipScreen,
+                            onTap: () {
+                              _pageController.jumpToPage(3);
+                            }),
+                      ),
+                    ],
+                  )
+                : appButton(
+                    buttonTitle: AppStrings.getStarted,
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignIn()));
+                    })),
       ],
     ));
   }

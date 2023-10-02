@@ -15,7 +15,7 @@ class OnBoardingPageIndicatorDot extends StatelessWidget {
       width: isActive ? 10.r : 6.r,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(4.r),
-          color: isActive ? AppColors.skyeBlueColor : AppColors.greyColor),
+          color: isActive ? AppColors.primaryColor : AppColors.greyColor),
     );
   }
 }
