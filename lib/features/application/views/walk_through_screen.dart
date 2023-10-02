@@ -1,3 +1,4 @@
+import 'package:dating_assitant_app/features/sign_in/view/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dating_assitant_app/commons/widgets/button_widget.dart';
@@ -6,7 +7,6 @@ import 'package:dating_assitant_app/features/application/widgets/walk_through_co
 import 'package:dating_assitant_app/constants/images.dart';
 import 'package:dating_assitant_app/constants/strings.dart';
 
-import '../../sign_up/view/sign_up.dart';
 
 class WalkThroughScreen extends StatefulWidget {
   const WalkThroughScreen({super.key});
@@ -91,7 +91,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
               buttonTitle: AppStrings.getStarted,
               onTap: () {
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const SignUp()));
+                    MaterialPageRoute(builder: (context) => const SignIn()));
               }),
         ),
       ],

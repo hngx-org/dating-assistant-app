@@ -10,33 +10,39 @@ class Dashboard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final indexProvider = ref.watch(dashboardNavIndexProvider);
-    return Container(
-      color: Colors.white,
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: appScreens(index: indexProvider),
-        bottomNavigationBar: Container(
-          // height: 58,
-          decoration: BoxDecoration(
-            color: ProjectColors.white,
-            boxShadow: [
-              BoxShadow(
-                color: ProjectColors.black.withOpacity(0.2),
-                offset: const Offset(0, -2),
-                blurRadius: 5,
-              )
-            ]
-          ),
-          child: BottomNavigationBar(
-            currentIndex: indexProvider,
-            onTap: (value) => ref.read(dashboardNavIndexProvider.notifier).changeIndex(value),
-            elevation: 0,
-            items: bottomTabs,
-            type: BottomNavigationBarType.fixed,
-            showUnselectedLabels: false,
-            showSelectedLabels: false,
-            selectedItemColor: ProjectColors.black,
-            unselectedItemColor: ProjectColors.grey,
+    return WillPopScope(
+      // This ensures the user isn't able to navigate back to the screen layer before the dashbord
+      onWillPop: () async {
+        return false;
+      },
+      child: Container(
+        color: Colors.white,
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: appScreens(index: indexProvider),
+          bottomNavigationBar: Container(
+            // height: 58,
+            decoration: BoxDecoration(
+              color: ProjectColors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: ProjectColors.black.withOpacity(0.2),
+                  offset: const Offset(0, -2),
+                  blurRadius: 5,
+                )
+              ]
+            ),
+            child: BottomNavigationBar(
+              currentIndex: indexProvider,
+              onTap: (value) => ref.read(dashboardNavIndexProvider.notifier).changeIndex(value),
+              elevation: 0,
+              items: bottomTabs,
+              type: BottomNavigationBarType.fixed,
+              showUnselectedLabels: false,
+              showSelectedLabels: false,
+              selectedItemColor: ProjectColors.black,
+              unselectedItemColor: Colors.grey,
+            ),
           ),
         ),
       ),
