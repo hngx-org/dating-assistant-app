@@ -44,14 +44,14 @@ Widget customContainer(
     child: Container(
       width: width,
       height: height,
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: BoxDecoration(
           border: Border.all(color: bordercolor),
           borderRadius: BorderRadius.circular(10)),
       child: Center(
           child: Row(
         children: [
-          Icon(icon, size: 33),
+         if ( icon != null )Icon(icon, size: 33),
           const SizedBox(width: 25),
           TextSize18(
             text: containerTitle,

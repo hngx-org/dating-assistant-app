@@ -16,16 +16,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+          elevation: 0,
           backgroundColor: ProjectColors.white,
+          titleSpacing: -50,
           title: ListTile(
             leading: Image.asset(
               'assets/images/logo.png',
               width: 50,
             ),
-            title:  const TextSize18(text: 'Ai Assistant', color: ProjectColors.black),
+            title: const TextSize18(
+                text: 'Ai Assistant', color: ProjectColors.black),
           )),
-          backgroundColor: ProjectColors.white,
+      backgroundColor: ProjectColors.white,
       body: Padding(
         padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
         child: Column(
@@ -44,17 +46,31 @@ class _HomePageState extends State<HomePage> {
             ),
             customContainer(
                 icon: Icons.quickreply,
-                containerTitle: 'Generate quick \nconversation starters'),
+                containerTitle: 'Generate quick \nconversation starters',
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ChatScreenMain()));
+                }),
             const SizedBox(
               height: 20,
             ),
             customContainer(
-                icon: Icons.message, containerTitle: 'Craft engaging messages'),
+                icon: Icons.message,
+                containerTitle: 'Craft engaging messages',
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ChatScreenMain()));
+                }),
             const SizedBox(
               height: 20,
             ),
             customContainer(
-                icon: Icons.gesture, containerTitle: 'Get Dating advice'),
+                icon: Icons.gesture,
+                containerTitle: 'Get Dating advice',
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ChatScreenMain()));
+                }),
           ],
         ),
       ),

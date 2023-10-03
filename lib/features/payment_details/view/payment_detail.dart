@@ -88,7 +88,7 @@ class PaymentDetail extends StatelessWidget {
                         const FormLabelText(label: 'Expiry Date'),
                         const SizedBox(height: 5),
                         CustomTextFormField(
-                          width: 190,
+                          width: 150,
                           hintText: 'MM/YY',
                           keyboardType: TextInputType.number,
                           inputFormatters: [
@@ -97,13 +97,16 @@ class PaymentDetail extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // const SizedBox(
+                    //   width: 10,
+                    // ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const FormLabelText(label: 'Cvv'),
                         const SizedBox(height: 5),
                         CustomTextFormField(
-                          width: 190,
+                          width: 150,
                           hintText: 'CVV',
                           keyboardType: TextInputType.number,
                           inputFormatters: [
