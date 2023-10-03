@@ -14,64 +14,67 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          padding:
-              const EdgeInsets.only(top: 90, right: 20, left: 20, bottom: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  const Center(
-                    child: Textsize32(
-                      text: 'Hello Again',
-                      color: ProjectColors.pink,
-                      fontWeight: FontWeight.w800,
+        child: SingleChildScrollView(
+          child: Container(
+            padding:
+                const EdgeInsets.only(top: 90, right: 20, left: 20, bottom: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    const Center(
+                      child: Textsize32(
+                        text: 'Hello Again',
+                        color: ProjectColors.pink,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 24,
+                        height: 1.5,
+                        letterSpacing: 0.5,
+                      ),
+                    ),
+                    const SizedBox(height: 60),
+                    // Email Textfield
+                    const AuthTextFormField(
+                      prefixIcon: Icon(
+                        Icons.mail_outline,
+                        color: ProjectColors.black,
+                        size: 30,
+                      ),
+                      hintText: 'Email address',
+                    ),
+                    const SizedBox(height: 20),
+                    // Password Textfield
+                    const AuthTextFormField(
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: ProjectColors.black,
+                        size: 30,
+                      ),
+                      hintText: 'Password',
+                    ),
+                    const SizedBox(height: 30),
+                    // Login Button
+                    appButton(
+                      onTap: () {},
+                      buttonTitle: 'Log in',
+                    ),
+                    const SizedBox(height: 20),
+                    const TextSize18(
+                      text: 'Or',
+                      color: ProjectColors.black,
+                    ),
+
+                    const SizedBox(height: 20),
+                    // login with google button
+                    customContainer(
+                      containerTitle: 'Log in with Google',
+                      fontWeight: FontWeight.bold,
                       fontSize: 24,
-                      height: 1.5,
-                      letterSpacing: 0.5,
-                    ),
-                  ),
-                  const SizedBox(height: 60),
-                  // Email Textfield
-                  const AuthTextFormField(
-                    prefixIcon: Icon(
-                      Icons.mail_outline,
-                      color: ProjectColors.black,
-                      size: 30,
-                    ),
-                    hintText: 'Email address',
-                  ),
-                  const SizedBox(height: 20),
-                  // Password Textfield
-                  const AuthTextFormField(
-                    prefixIcon: Icon(
-                      Icons.lock,
-                      color: ProjectColors.black,
-                      size: 30,
-                    ),
-                    hintText: 'Password',
-                  ),
-                  const SizedBox(height: 30),
-                  // Login Button
-                  appButton(
-                    onTap: () {},
-                    buttonTitle: 'Log in',
-                  ),
-                  const SizedBox(height: 20),
-                  const TextSize18(
-                    text: 'Or',
-                    color: ProjectColors.black,
-                  ),
-                  const SizedBox(height: 20),
-                  // login with google button
-                  customContainer(
-                    containerTitle: 'Log in with Google',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                  )
-                ],
-              ),
+                    )
+                  ],
+                ),
+           
 
               // don't have an account section
               Column(
@@ -114,12 +117,13 @@ class SignIn extends StatelessWidget {
                     },
                     child: const TextSize18(
                       text: 'Start without creating an account',
-                      color: ProjectColors.blue,
+                      color: ProjectColors.blue
+                      
                     ),
-                  ),
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
