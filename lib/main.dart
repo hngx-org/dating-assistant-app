@@ -1,4 +1,3 @@
-import 'package:dating_assitant_app/features/chat/view/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
