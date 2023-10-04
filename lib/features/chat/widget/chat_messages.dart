@@ -1,17 +1,8 @@
-// import 'package:dating_assitant_app/commons/widgets/text_widgets.dart';
-import 'package:flutter/material.dart';
-// import 'package:dating_assitant_app/commons/utils/colors.dart';
+enum ChatMessageType { user, bot }
 
-class ChatMessage extends StatelessWidget {
-  const ChatMessage({super.key, required this.sender, required this.text});
-
+class ChatMessage {
   final String text;
-  final String sender;
+  final ChatMessageType chatMessageType;
 
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-      children: [],
-    );
-  }
+  ChatMessage({required this.text, required this.chatMessageType});
 }

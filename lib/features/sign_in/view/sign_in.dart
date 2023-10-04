@@ -74,51 +74,49 @@ class SignIn extends StatelessWidget {
                     )
                   ],
                 ),
-           
 
-              // don't have an account section
-              Column(
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to the sign up screen
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SignUp(),
-                      ));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const TextSize18(
-                          text: 'Don\'t have an account?',
-                          color: ProjectColors.black,
-                        ),
-                        const SizedBox(width: 7),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SignUp(),
-                            ));
-                          },
-                          child: const TextSize18(
-                            text: 'Sign up',
-                            color: ProjectColors.blue,
+                // don't have an account section
+                Column(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        // Navigate to the sign up screen
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SignUp(),
+                        ));
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const TextSize18(
+                            text: 'Don\'t have an account?',
+                            color: ProjectColors.black,
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 7),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const SignUp(),
+                              ));
+                            },
+                            child: const TextSize18(
+                              text: 'Sign up',
+                              color: ProjectColors.blue,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to the home page
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Dashboard(),
-                      ));
-                    },
-                    child: const TextSize18(
-                      text: 'Start without creating an account',
-                      color: ProjectColors.blue
-                      
+                    TextButton(
+                      onPressed: () {
+                        // Navigate to the home page
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const Dashboard(),
+                        ));
+                      },
+                      child: const TextSize18(
+                          text: 'Start without creating an account',
+                          color: ProjectColors.blue),
                     ),
                   ],
                 )

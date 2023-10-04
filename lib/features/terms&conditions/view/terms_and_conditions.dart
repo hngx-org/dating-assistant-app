@@ -40,7 +40,7 @@ class TermsAndConditons extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 30),
               // Terms & Conditions
               ConditionText(
                 text:
@@ -71,7 +71,6 @@ class TermsAndConditons extends StatelessWidget {
                 text:
                     '5. Account Termination: We reserve the right to terminate accounts for violations of these terms.',
               ),
-
               // Check box
               TermsCheckbox()
             ],

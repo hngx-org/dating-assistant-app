@@ -1,8 +1,6 @@
-import 'package:dating_assitant_app/features/chat/view/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'features/application/views/splash_screen.dart';
 
 void main() {
@@ -15,15 +13,14 @@ class DatingAssistantApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(370, 810),
-      minTextAdapt: false,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return const MaterialApp(
-          home: SplashScreen(),
-          debugShowCheckedModeBanner: false,
-        );
-      },
-    );
+        designSize: const Size(370, 810),
+        minTextAdapt: false,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return const MaterialApp(
+            home: SplashScreen(),
+            debugShowCheckedModeBanner: false,
+          );
+        });
   }
 }
