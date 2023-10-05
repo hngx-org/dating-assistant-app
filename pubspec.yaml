@@ -46,7 +46,7 @@ dependencies:
   riverpod_generator: ^2.3.1
   riverpod_lint: ^2.0.3
   flutter_screenutil: ^5.9.0
-  hng_authentication: ^0.1.2
+  hng_authentication: ^0.1.4
   shared_preferences: ^2.2.1
 
 

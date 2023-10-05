@@ -1,9 +1,11 @@
+import 'package:dating_assitant_app/global.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'features/application/views/splash_screen.dart';
 
-void main() {
+void main() async {
+  await Global.init();
   runApp(const ProviderScope(child: DatingAssistantApp()));
 }
 

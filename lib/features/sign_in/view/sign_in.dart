@@ -118,14 +118,14 @@ class SignIn extends ConsumerWidget {
                               final authRepository = Authentication();
                               final response = await authRepository.signIn(email, password);
 
-                              //  final setCookieHeader = response.headers['Set-Cookie'];
+                               final setCookieHeader = response.cookie;
                               if (response != null) {
                                 // showSnackbar(context, Colors.black, 'SignUp successful');
                                 if (kDebugMode) {
-                                  print(response);
+                                  print('Cookie: ${response.cookie}');
                                 }
                                 // This doesn't work... as the header is inaccesible from the response
-                                // Global.storageServices.setString(AppConstants.localStorageCookie, setCookieHeader);
+                                Global.storageServices.setString(AppConstants.localStorageCookie, setCookieHeader);
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
