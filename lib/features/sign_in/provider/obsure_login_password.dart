@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final passwordObscure = StateNotifierProvider.autoDispose<ObscureNotifier,bool>((ref) {
+final loginpasswordObscure = StateNotifierProvider.autoDispose<ObscureNotifier,bool>((ref) {
   return ObscureNotifier();
 });
 

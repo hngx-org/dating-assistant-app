@@ -4,7 +4,6 @@ import 'package:dating_assitant_app/features/terms&conditions/widgets/conditions
 import 'package:flutter/material.dart';
 
 import 'package:dating_assitant_app/commons/widgets/button_widget.dart';
-import 'package:dating_assitant_app/features/profile/view/profile.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../provider/checkbox_provider.dart';
 

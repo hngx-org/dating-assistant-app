@@ -9,6 +9,9 @@ class AuthTextFormField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final bool obscureText;
+  final String? Function(String?)? validator;
 
   const AuthTextFormField({
     super.key,
@@ -18,6 +21,9 @@ class AuthTextFormField extends StatelessWidget {
     this.inputFormatters,
     this.keyboardType,
     this.prefixIcon,
+    this.suffixIcon,
+    this.obscureText = false,
+    this.validator,
   });
 
   @override
@@ -27,14 +33,20 @@ class AuthTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         inputFormatters: inputFormatters,
+        obscureText: obscureText,
         keyboardType: keyboardType,
         cursorColor: ProjectColors.pink,
+        validator: validator,
         decoration: InputDecoration(
           prefixIcon: prefixIcon,
+          suffixIcon: suffixIcon,
           hintText: hintText,
           hintStyle: const TextStyle(color: ProjectColors.black, fontWeight: FontWeight.w300),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(color: ProjectColors.pink),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: ProjectColors.pink),
             borderRadius: BorderRadius.all(Radius.circular(20)),
