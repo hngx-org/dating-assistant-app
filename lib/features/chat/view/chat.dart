@@ -4,6 +4,8 @@ import 'package:dating_assitant_app/commons/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hngx_openai/repository/openai_repository.dart';
 
+import 'package:dating_assitant_app/commons/services/storage.dart';
+
 class ChatScreenMain extends StatefulWidget {
   const ChatScreenMain({super.key});
 
@@ -23,11 +25,13 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
     super.dispose();
   }
 
+  StorageServices cookies = StorageServices();
+
   void _submitMessage() async {
     OpenAIRepository openAI = OpenAIRepository();
-    //authentication cookie
-    const String cookie =
-        "session=487d97a5-3e43-4502-80d4-9315c3d7bf77.24ZfCu95q06BqVuCUFWuJJoLAgM";
+    String cookie = cookies.getUserCookie();
+
+    //add user messageookie();
     setState(() {
       _messages.add(ChatMessage(
           text: _messageController.text,
@@ -38,7 +42,9 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
 
     var userInput = _messageController.text;
     _messageController.clear();
+    //authentication cookie
 
+//initialize ai response
     final aiResponse = await openAI.getChat(userInput, cookie);
 
     setState(() {

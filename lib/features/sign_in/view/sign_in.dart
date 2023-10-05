@@ -18,7 +18,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hng_authentication/authentication.dart';
 import 'package:hng_authentication/widgets/widget.dart';
 
-
 final TextEditingController _emailController = TextEditingController();
 final TextEditingController _passwordController = TextEditingController();
 
@@ -37,182 +36,193 @@ class SignIn extends ConsumerWidget {
           child: Container(
             padding:
                 const EdgeInsets.only(top: 90, right: 20, left: 20, bottom: 20),
-            child: isSigningIn ? Center(child: progress()) : Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Form(
-                  key: _signinformKey,
-                  child: Column(
+            child: isSigningIn
+                ? Center(child: progress())
+                : Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Center(
-                        child: Textsize32(
-                          text: 'Hello Again',
-                          color: ProjectColors.pink,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 24,
-                          height: 1.5,
-                          letterSpacing: 0.5,
-                        ),
-                      ),
-                      const SizedBox(height: 60),
-                      // Email Textfield
-                      AuthTextFormField(
-                        controller: _emailController,
-                        validator: (value) {
-                          if (value == null ||
-                              value.isEmpty ||
-                              !value.contains('@')) {
-                            return 'Please enter a valid email address';
-                          }
-                          return null;
-                        },
-                        prefixIcon: const Icon(
-                          Icons.mail_outline,
-                          color: ProjectColors.black,
-                          size: 30,
-                        ),
-                        hintText: 'Email address',
-                      ),
-                      const SizedBox(height: 20),
-                      // Password Textfield
-                      AuthTextFormField(
-                        controller: _passwordController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a password';
-                          } else if (value.length < 8) {
-                            return 'Password must be at least 8 characters';
-                          }
-                          return null;
-                        },
-                        obscureText: isObscured,
-                        prefixIcon: IconButton(
-                          onPressed: () {
-                            ref.read(loginpasswordObscure.notifier).toggle();
-                          },
-                          icon: isObscured
-                              ? const Icon(
-                                  Icons.lock,
-                                  color: ProjectColors.black,
-                                  size: 30,
-                                )
-                              : const Icon(
-                                  Icons.lock_open,
-                                  color: ProjectColors.black,
-                                  size: 30,
-                                ),
-                        ),
-                        hintText: 'Password',
-                      ),
-                      const SizedBox(height: 30),
-
-                      // Login Button
-                      appButton(
-                        onTap: () async {
-                          _signinformKey.currentState!.save();
-                          if (_signinformKey.currentState!.validate()) {
-                            try {
-                              ref.read(loadingProvider.notifier).state = true;
-                              final email = (_emailController).text;
-                              final password = (_passwordController).text;
-                              final authRepository = Authentication();
-                              final response = await authRepository.signIn(email, password);
-
-                               final setCookieHeader = response.cookie;
-                              if (response != null) {
-                                // showSnackbar(context, Colors.black, 'SignUp successful');
-                                if (kDebugMode) {
-                                  print('Cookie: ${response.cookie}');
+                      Form(
+                        key: _signinformKey,
+                        child: Column(
+                          children: [
+                            const Center(
+                              child: Textsize32(
+                                text: 'Hello Again',
+                                color: ProjectColors.pink,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 24,
+                                height: 1.5,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                            const SizedBox(height: 60),
+                            // Email Textfield
+                            AuthTextFormField(
+                              controller: _emailController,
+                              validator: (value) {
+                                if (value == null ||
+                                    value.isEmpty ||
+                                    !value.contains('@')) {
+                                  return 'Please enter a valid email address';
                                 }
-                                // This doesn't work... as the header is inaccesible from the response
-                                Global.storageServices.setString(AppConstants.localStorageCookie, setCookieHeader);
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Dashboard(),
-                                  ),
-                                );
-                              } else {
-                                // SignIn failed, display an error message
-                                showSnackbar(
-                                    context, Colors.red, 'SignIn ERROR');
-                              }
-                            } catch (error) {
-                              // Handle the error and print the error message
-                              if (kDebugMode) {
-                                print('Error: $error');
-                              }
-                            } finally {
-                              ref.read(loadingProvider.notifier).state = false;
-                            }
-                          }
-                        },
-                        buttonTitle: 'Log in',
-                      ),
-                      const SizedBox(height: 20),
-                      const TextSize18(
-                        text: 'Or',
-                        color: ProjectColors.black,
+                                return null;
+                              },
+                              prefixIcon: const Icon(
+                                Icons.mail_outline,
+                                color: ProjectColors.black,
+                                size: 30,
+                              ),
+                              hintText: 'Email address',
+                            ),
+                            const SizedBox(height: 20),
+                            // Password Textfield
+                            AuthTextFormField(
+                              controller: _passwordController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter a password';
+                                } else if (value.length < 8) {
+                                  return 'Password must be at least 8 characters';
+                                }
+                                return null;
+                              },
+                              obscureText: isObscured,
+                              prefixIcon: IconButton(
+                                onPressed: () {
+                                  ref
+                                      .read(loginpasswordObscure.notifier)
+                                      .toggle();
+                                },
+                                icon: isObscured
+                                    ? const Icon(
+                                        Icons.lock,
+                                        color: ProjectColors.black,
+                                        size: 30,
+                                      )
+                                    : const Icon(
+                                        Icons.lock_open,
+                                        color: ProjectColors.black,
+                                        size: 30,
+                                      ),
+                              ),
+                              hintText: 'Password',
+                            ),
+                            const SizedBox(height: 30),
+
+                            // Login Button
+                            appButton(
+                              onTap: () async {
+                                _signinformKey.currentState!.save();
+                                if (_signinformKey.currentState!.validate()) {
+                                  try {
+                                    ref.read(loadingProvider.notifier).state =
+                                        true;
+                                    final email = (_emailController).text;
+                                    final password = (_passwordController).text;
+                                    final authRepository = Authentication();
+                                    final response = await authRepository
+                                        .signIn(email, password);
+                                    final setCookieHeader = response.cookie;
+
+                                    if (response != null) {
+                                      // showSnackbar(context, Colors.black, 'SignUp successful');
+                                      if (kDebugMode) {
+                                        print('Cookie: ${response.cookie}');
+                                      }
+                                      // This doesn't work... as the header is inaccesible from the response
+                                      Global.storageServices.setString(
+                                          AppConstants.localStorageCookie,
+                                          setCookieHeader);
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Dashboard(),
+                                        ),
+                                      );
+                                    } else {
+                                      // SignIn failed, display an error message
+                                      showSnackbar(
+                                          context, Colors.red, 'SignIn ERROR');
+                                    }
+                                  } catch (error) {
+                                    // Handle the error and print the error message
+                                    if (kDebugMode) {
+                                      print('Error: $error');
+                                    }
+                                  } finally {
+                                    ref.read(loadingProvider.notifier).state =
+                                        false;
+                                  }
+                                }
+                              },
+                              buttonTitle: 'Log in',
+                            ),
+                            const SizedBox(height: 20),
+                            const TextSize18(
+                              text: 'Or',
+                              color: ProjectColors.black,
+                            ),
+
+                            const SizedBox(height: 20),
+                            // login with google button
+                            customContainer(
+                              containerTitle: 'Log in with Google',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            )
+                          ],
+                        ),
                       ),
 
-                      const SizedBox(height: 20),
-                      // login with google button
-                      customContainer(
-                        containerTitle: 'Log in with Google',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                      )
-                    ],
-                  ),
-                ),
-
-                // don't have an account section
-                Column(
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        // Navigate to the sign up screen
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SignUp(),
-                        ));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      // don't have an account section
+                      Column(
                         children: [
-                          const TextSize18(
-                            text: 'Don\'t have an account?',
-                            color: ProjectColors.black,
-                          ),
-                          const SizedBox(width: 7),
-                          GestureDetector(
-                            onTap: () {
+                          TextButton(
+                            onPressed: () {
+                              // Navigate to the sign up screen
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const SignUp(),
                               ));
                             },
-                            child: const TextSize18(
-                              text: 'Sign up',
-                              color: ProjectColors.blue,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const TextSize18(
+                                  text: 'Don\'t have an account?',
+                                  color: ProjectColors.black,
+                                ),
+                                const SizedBox(width: 7),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) => const SignUp(),
+                                    ));
+                                  },
+                                  child: const TextSize18(
+                                    text: 'Sign up',
+                                    color: ProjectColors.blue,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
+                          TextButton(
+                            onPressed: () {
+                              // Navigate to the home page
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Dashboard(),
+                              ));
+                            },
+                            child: const TextSize18(
+                                text: 'Start without creating an account',
+                                color: ProjectColors.blue),
+                          ),
                         ],
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Navigate to the home page
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Dashboard(),
-                        ));
-                      },
-                      child: const TextSize18(
-                          text: 'Start without creating an account',
-                          color: ProjectColors.blue),
-                    ),
-                  ],
-                )
-              ],
-            ),
+                      )
+                    ],
+                  ),
           ),
         ),
       ),
