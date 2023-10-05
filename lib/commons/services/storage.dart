@@ -12,12 +12,11 @@ class StorageServices {
     return await _pref.setString(key, value);
   }
 
-
-  Future<String> getString(String key) async{
-    return _pref.getString(key)?? '';
+  Future<String> getString(String key) async {
+    return _pref.getString(key) ?? '';
   }
 
-  String getUserCookie(){
+  String getUserCookie() {
     return _pref.getString(AppConstants.localStorageCookie) ?? '';
   }
 }
