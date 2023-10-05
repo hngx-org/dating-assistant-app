@@ -3,6 +3,8 @@ import 'package:dating_assitant_app/commons/widgets/custom_container.dart';
 import 'package:dating_assitant_app/commons/widgets/text_widgets.dart';
 import 'package:dating_assitant_app/features/terms&conditions/view/terms_and_conditions.dart';
 import 'package:dating_assitant_app/features/upgrade/view/upgrade.dart';
+import 'package:dating_assitant_app/commons/widgets/button_widget.dart';
+import 'package:dating_assitant_app/features/sign_in/view/sign_in.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -52,15 +54,20 @@ class _ProfileState extends State<Profile> {
               const SizedBox(height: 25),
               customContainer(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TermsAndConditons(),));
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const TermsAndConditons(),
+                  ));
                 },
                 icon: CupertinoIcons.doc_text,
                 containerTitle: 'Terms and conditions',
               ),
               const SizedBox(height: 25),
-              customContainer(
-                icon: CupertinoIcons.chat_bubble_fill,
-                containerTitle: 'about us',
+              appButton(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const SignIn()));
+                },
+                buttonTitle: 'Log out',
               ),
             ],
           ),
