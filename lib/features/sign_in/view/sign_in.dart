@@ -120,8 +120,7 @@ class SignIn extends ConsumerWidget {
                                     final email = (_emailController).text;
                                     final password = (_passwordController).text;
                                     final authRepository = Authentication();
-                                    final response = await authRepository
-                                        .signIn(email, password);
+                                    final response = await authRepository.signIn(email, password);
                                     final setCookieHeader = response.cookie;
 
                                     if (response != null) {
@@ -130,9 +129,7 @@ class SignIn extends ConsumerWidget {
                                         print('Cookie: ${response.cookie}');
                                       }
                                       // This doesn't work... as the header is inaccesible from the response
-                                      Global.storageServices.setString(
-                                          AppConstants.localStorageCookie,
-                                          setCookieHeader);
+                                      Global.storageServices.setString(AppConstants.localStorageCookie, setCookieHeader);
                                       Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
