@@ -1,4 +1,5 @@
 import 'package:dating_assitant_app/features/chat/widget/chat_messages.dart';
+import 'package:dating_assitant_app/global.dart';
 import 'package:flutter/material.dart';
 import 'package:dating_assitant_app/commons/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +19,8 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
   final _scrollController = ScrollController();
   final _messageController = TextEditingController();
   final List<ChatMessage> _messages = [];
+  final String userCookie =
+      Global.storageServices.getUserCookie(); // UserAuth cookies
 
   @override
   void dispose() {
@@ -25,34 +28,36 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
     super.dispose();
   }
 
-  StorageServices cookies = StorageServices();
-
   void _submitMessage() async {
-    OpenAIRepository openAI = OpenAIRepository();
-    String cookie = cookies.getUserCookie();
+    if (_messageController.text.isNotEmpty) {
+      OpenAIRepository openAI = OpenAIRepository();
 
-    //add user messageookie();
-    setState(() {
-      _messages.add(ChatMessage(
-          text: _messageController.text,
-          chatMessageType: ChatMessageType.user));
+      //add user messageookie();
+      setState(() {
+        _messages.add(
+          ChatMessage(
+            text: _messageController.text,
+            chatMessageType: ChatMessageType.user,
+          ),
+        );
 
-      isLoading = true;
-    });
+        isLoading = true;
+      });
 
-    var userInput = _messageController.text;
-    _messageController.clear();
-    //authentication cookie
+      var userInput = _messageController.text;
+      _messageController.clear();
 
-//initialize ai response
-    final aiResponse = await openAI.getChat(userInput, cookie);
+      //initialize ai response
+      final aiResponse = await openAI.getChat(userInput, userCookie);
 
-    setState(() {
-      _messages.add(
-          ChatMessage(text: aiResponse, chatMessageType: ChatMessageType.bot));
-      isLoading = false;
-    });
-    _messageController.clear();
+      setState(() {
+        _messages.add(
+          ChatMessage(text: aiResponse, chatMessageType: ChatMessageType.bot),
+        );
+        isLoading = false;
+      });
+      _messageController.clear();
+    }
   }
 
   @override
