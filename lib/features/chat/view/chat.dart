@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:dating_assitant_app/commons/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hngx_openai/repository/openai_repository.dart';
-
 import 'package:dating_assitant_app/commons/services/storage.dart';
 
 class ChatScreenMain extends StatefulWidget {
@@ -28,11 +27,13 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
     super.dispose();
   }
 
+  //submit chat method
+
   void _submitMessage() async {
     if (_messageController.text.isNotEmpty) {
       OpenAIRepository openAI = OpenAIRepository();
 
-      //add user messageookie();
+      //add user message
       setState(() {
         _messages.add(
           ChatMessage(
@@ -49,10 +50,21 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
 
       //initialize ai response
       final aiResponse = await openAI.getChat(userInput, userCookie);
+      // filter ai response prefix
+
+      String filterText(String aiResponse) {
+        if (aiResponse.startsWith('M')) {
+          return aiResponse.substring(8).trim();
+        } else {
+          return aiResponse.substring(6).trim();
+        }
+      }
 
       setState(() {
         _messages.add(
-          ChatMessage(text: aiResponse, chatMessageType: ChatMessageType.bot),
+          ChatMessage(
+              text: filterText(aiResponse),
+              chatMessageType: ChatMessageType.bot),
         );
         isLoading = false;
       });
@@ -91,6 +103,7 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
         elevation: 0,
       ),
       backgroundColor: ProjectColors.white,
+      //chat screen body
       body: SafeArea(
         child: Column(
           children: [
@@ -99,7 +112,8 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
               child: ListView.builder(
                   controller: _scrollController,
                   // reverse: true,
-                  padding: const EdgeInsets.all(8),
+                  // shrinkWrap: true,
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
                   itemCount: _messages.length,
                   itemBuilder: (context, index) {
                     var message = _messages[index];
@@ -109,7 +123,7 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
                     );
                   }),
             ),
-
+//loading spinner
             Visibility(
               visible: isLoading,
               child: const Padding(
@@ -156,7 +170,7 @@ class _ChatScreenMainState extends State<ChatScreenMain> {
                     //<-- SEE HERE
                     Icons.send,
                     color: ProjectColors.white,
-                    size: 20,
+                    size: 18,
                   ),
                 ),
               ]),
@@ -177,72 +191,86 @@ class ChatMessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      padding: const EdgeInsets.all(16),
-      color: chatMessageType == ChatMessageType.user
-          ? ProjectColors.grey
-          : ProjectColors.pink,
-      child: Row(children: [
-        chatMessageType == ChatMessageType.user
-            ? Container(
-                margin: const EdgeInsets.only(right: 16),
-                child: const CircleAvatar(
-                  child: Icon(Icons.person),
-                ),
-              )
-            : Container(
-                margin: const EdgeInsets.only(right: 16),
-                child: CircleAvatar(
-                  backgroundColor: ProjectColors.white,
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    scale: 1,
-                    color: ProjectColors.white,
-                  ),
-                ),
-              ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(16)),
-                child: Text(text,
-                    style: TextStyle(
-                      color: chatMessageType == ChatMessageType.user
-                          ? ProjectColors.black
-                          : ProjectColors.white,
-                    )),
-              ),
-            ],
+      padding: const EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
+      child: Align(
+        alignment: (chatMessageType == ChatMessageType.bot
+            ? Alignment.topLeft
+            : Alignment.topRight),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: (chatMessageType == ChatMessageType.bot
+                ? ProjectColors.pink
+                : ProjectColors.grey),
           ),
-        )
-      ]),
+          padding: const EdgeInsets.all(16),
+          child: Text(
+            text,
+            style: TextStyle(
+              color: chatMessageType == ChatMessageType.user
+                  ? ProjectColors.black
+                  : ProjectColors.white,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
 
 
-// color: chatMessageType == ChatMessageType.bot,
-// child: Align(
-//         alignment: chatMessageType == ChatMessageType.bot
-//             ? Alignment.bottomLeft
-//             : Alignment.bottomRight,
-//         child: Container(
 
 
-    // ChatMessage _message =
-    //     ChatMessage(sender: 'user', text: _messageController.text);
-    // setState(() {
-    //   _messages.insert(0, _message);
-    // });
 
-    // final enteredMessage = _messageController.text;
 
-    // if (enteredMessage.trim().isEmpty) {
-    //   return;
-    // }
 
-    // send to backend
+
+
+
+
+
+// Container(
+//       margin: const EdgeInsets.symmetric(vertical: 10),
+//       padding: const EdgeInsets.all(16),
+//       color: chatMessageType == ChatMessageType.user
+//           ? ProjectColors.grey
+//           : ProjectColors.pink,
+//       child: Row(children: [
+//         chatMessageType == ChatMessageType.user
+//             ? Container(
+//                 margin: const EdgeInsets.only(right: 16),
+//                 child: const CircleAvatar(
+//                   child: Icon(Icons.person),
+//                 ),
+//               )
+//             : Container(
+//                 margin: const EdgeInsets.only(right: 16),
+//                 child: CircleAvatar(
+//                   backgroundColor: ProjectColors.white,
+//                   child: Image.asset(
+//                     'assets/images/logo.png',
+//                     scale: 1,
+//                     color: ProjectColors.white,
+//                   ),
+//                 ),
+//               ),
+//         Expanded(
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Container(
+//                 padding: const EdgeInsets.all(16),
+//                 decoration:
+//                     BoxDecoration(borderRadius: BorderRadius.circular(16)),
+//                 child: Text(text,
+//                     style: TextStyle(
+//                       color: chatMessageType == ChatMessageType.user
+//                           ? ProjectColors.black
+//                           : ProjectColors.white,
+//                     )),
+//               ),
+//             ],
+//           ),
+//         )
+//       ]),
+//     );
